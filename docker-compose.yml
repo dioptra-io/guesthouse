@@ -1,0 +1,16 @@
+services:
+  clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:22
+    ports:
+      - 8123:8123
+    volumes:
+      - ./configuration/clickhouse/users.d:/etc/clickhouse-server/users.d:ro
+
+  guesthouse:
+    build: .
+    ports:
+      - 8000:8000
+      - 9090:9090
+    volumes:
+      - "./configuration/chproxy/template.yml:/app/configuration/chproxy/template.yml:ro"
+      - "./guesthouse:/app/guesthouse:ro"

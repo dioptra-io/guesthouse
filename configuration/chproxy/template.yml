@@ -1,0 +1,21 @@
+# Allow everyone to connect over HTTP for testing purposes.
+hack_me_please: true
+
+server:
+  http:
+    listen_addr: ":9090"
+
+users:
+  - name: "dummy"
+    password: "dummy"
+    to_cluster: "default"
+    to_user: "dummy"
+
+clusters:
+  - name: "default"
+    nodes: ["localhost:8123"]
+    users:
+      - name: "default"
+        password: ""
+      - name: "dummy"
+        password: "dummy"
