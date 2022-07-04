@@ -6,6 +6,8 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     chproxy_path: Path = Path("/usr/bin/chproxy")
     """Path to the chproxy binary."""
+    chproxy_base_url: str = "http://localhost:9090"
+    """URL of the chproxy instance that will be returned to the user."""
     clickhouse_base_url: str = "http://localhost:8123"
     """URL of the HTTP interface of the ClickHouse instance on which the users will be created."""
     clickhouse_username: str = "default"

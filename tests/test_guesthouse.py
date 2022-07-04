@@ -1,12 +1,10 @@
 from pych_client import AsyncClickHouseClient
 
-CHPROXY_BASE_URL = "http://localhost:9090"
-
 
 async def test_generate_credentials(client):
     credentials = client.post("/").json()
     async with AsyncClickHouseClient(
-        base_url=CHPROXY_BASE_URL,
+        base_url=credentials["base_url"],
         username=credentials["username"],
         password=credentials["password"],
     ) as clickhouse:

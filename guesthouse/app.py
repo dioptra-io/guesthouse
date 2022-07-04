@@ -72,6 +72,7 @@ async def generate_credentials(
     }
     chproxy.reload()
     return CredentialsResponse(
+        base_url=settings.chproxy_base_url,
         username=username,
         password=password,
         expiration_time=expiration_time,

@@ -16,11 +16,12 @@ class CredentialsRequest(BaseModel):
     )
     tables: list[str] = Field(
         default_factory=list,
-        title="Tables on which the user is allowed to run SELECT queries",
+        title="Tables on which the user is allowed to run SELECT queries, for the specified database",
     )
 
 
 class CredentialsResponse(BaseModel):
+    base_url: str = Field(..., title="ClickHouse URL")
     username: str = Field(..., title="ClickHouse user")
     password: str = Field(..., title="ClickHouse password")
     expiration_time: datetime = Field(..., title="User's expiration time")
