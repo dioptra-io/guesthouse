@@ -69,6 +69,9 @@ class ChProxy:
                     "password": user["password"],
                     "to_cluster": user["cluster"],
                     "to_user": user["username"],
+                    # TODO: Parameterize these.
+                    "allow_cors": True,
+                    "max_execution_time": "1h",
                 }
             )
             config["clusters"][cluster_idx[user["cluster"]]]["users"].append(
