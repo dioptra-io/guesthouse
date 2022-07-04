@@ -32,9 +32,12 @@ async def clean_users(
 ) -> None:
     users = await list_users(client, user_prefix)
     now = datetime.now(timezone.utc)
+    reload = False
     for user in users:
         exp = parse_username(user["name"])
         if now > exp:
             await delete_user(client, user["name"])
             chproxy.remove_user(user["name"])
-    chproxy.reload()
+            reload = True
+    if reload:
+        chproxy.reload()
