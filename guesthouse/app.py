@@ -11,6 +11,7 @@ from guesthouse.gc import clean_loop
 from guesthouse.models import CredentialsRequest, CredentialsResponse
 from guesthouse.settings import Settings
 from guesthouse.username import generate_username
+from guesthouse.utilities import gather_with_concurrency
 
 app = FastAPI()
 settings = Settings()
@@ -63,8 +64,9 @@ async def generate_credentials(
         password=body.password,
     ) as client:
         await create_user(client, username, password)
-        for table in body.tables:
-            await grant_select(client, username, table)
+        await gather_with_concurrency(
+            16, *[grant_select(client, username, table) for table in body.tables]
+        )
     chproxy.users[username] = {
         "username": username,
         "password": password,
