@@ -6,7 +6,11 @@ from fastapi import Body, FastAPI
 from pych_client import AsyncClickHouseClient
 
 from guesthouse.chproxy import ChProxy
-from guesthouse.clickhouse import create_user, grant_select
+from guesthouse.clickhouse import (
+    create_user,
+    grant_create_temporary_table,
+    grant_select,
+)
 from guesthouse.gc import clean_loop
 from guesthouse.models import CredentialsRequest, CredentialsResponse
 from guesthouse.settings import Settings
@@ -64,6 +68,7 @@ async def generate_credentials(
         password=body.password,
     ) as client:
         await create_user(client, username, password)
+        await grant_create_temporary_table(client, username)
         await gather_with_concurrency(
             16, *[grant_select(client, username, table) for table in body.tables]
         )

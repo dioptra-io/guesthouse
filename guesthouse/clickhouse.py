@@ -32,3 +32,12 @@ async def grant_select(
     # Parameter interpolation is not supported for GRANT queries as of v22.6.
     query = f"GRANT SELECT ON {table} TO {username}"
     await client.execute(query)
+
+
+async def grant_create_temporary_table(
+    client: AsyncClickHouseClient, username: str
+) -> None:
+    logger.info("Granting create temporary table to %s", username)
+    # Parameter interpolation is not supported for GRANT queries as of v22.6.
+    query = f"GRANT CREATE TEMPORARY TABLE ON *.* TO {username}"
+    await client.execute(query)
