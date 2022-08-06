@@ -317,17 +317,17 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pych-client"
-version = "0.2.12"
+version = "0.3.1"
 description = "A ClickHouse client for Python, with a command-line interface."
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
-httpx = ">=0.21.0"
+httpx = ">=0.23.0,<0.24.0"
 
 [package.extras]
-orjson = ["orjson (>=3.6.6,<4.0.0)"]
+orjson = ["orjson (>=3.6.7,<4.0.0)"]
 
 [[package]]
 name = "pydantic"
@@ -556,7 +556,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "b004224ce68403adf13a41190906531604775236ffa877edcc929782c5812c7b"
+content-hash = "77780f7e0ce58d44dcdcfe84b306fd6f98d8dded13aeb7409b31cf6af02f71e8"
 
 [metadata.files]
 anyio = [
@@ -728,8 +728,8 @@ py = [
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
 ]
 pych-client = [
-    {file = "pych-client-0.2.12.tar.gz", hash = "sha256:17aec350e20280e278aa30dcb78962720822ae4b3a343f2ffced46c9f12fc385"},
-    {file = "pych_client-0.2.12-py3-none-any.whl", hash = "sha256:c2c09324cc0e3929b0d20bde148706d34ec812b359f0f2fd18f56bbd96602f1a"},
+    {file = "pych-client-0.3.1.tar.gz", hash = "sha256:9770ab9370ecf95c2d51ebcd7c0af81b0a0871fda1e7bc651e0e5d6bcf9af2d7"},
+    {file = "pych_client-0.3.1-py3-none-any.whl", hash = "sha256:d922335f0e5299222feca06ac8eb93074fc77393d0b84dc0e94a418a05cedeab"},
 ]
 pydantic = [
     {file = "pydantic-1.9.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c8098a724c2784bf03e8070993f6d46aa2eeca031f8d8a048dff277703e6e193"},
