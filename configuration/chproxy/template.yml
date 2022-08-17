@@ -13,7 +13,9 @@ users:
 
 clusters:
   - name: "default"
-    nodes: ["localhost:8123"]
+    nodes:
+      - "clickhouse:8123" # When run through docker compose
+      - "localhost:8123"  # When run locally
     users:
       - name: "default"
         password: ""

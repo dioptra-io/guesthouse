@@ -6,7 +6,7 @@
 Generate temporary ClickHouse credentials.
 
 ```bash
-docker compose up
+docker compose up -d
 curl -X POST -H 'Content-Type: application/json' -d '{"tables": ["table1"]}' http://localhost:8000
 # {
 #   "username": "guesthouse_1642969798247293_3d30",
