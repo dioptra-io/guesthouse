@@ -5,6 +5,8 @@
 
 Generate temporary ClickHouse credentials.
 
+## Quickstart
+
 ```bash
 docker compose up -d
 curl -X POST -H 'Content-Type: application/json' -d '{"tables": ["table1"]}' http://localhost:8000
@@ -13,3 +15,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{"tables": ["table1"]}' htt
 #   "password": "e893960dc3ae5fb58cd95d97771a5b64"
 # }
 ```
+
+## Documentation
+
+The API documentation is available at http://localhost:8000/docs.
