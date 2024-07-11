@@ -7,6 +7,7 @@ import yaml
 from yaml import Dumper, Loader
 
 
+# A line of comment.
 class ChProxy:
     def __init__(self, chproxy_path: Path, template_path: Path, user_prefix: str):
         self.config_dir = TemporaryDirectory()
