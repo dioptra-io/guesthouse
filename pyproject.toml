@@ -12,6 +12,7 @@ pych-client = "^0.4.1"
 PyYAML = "^6.0"
 uvicorn = "^0.18.3"
 pytest = "^7.1.2"
+anyio = "<4"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.971"
