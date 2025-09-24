@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "^0.115.0"
+fastapi = "^0.116.2"
 pych-client = "^0.4.1"
 PyYAML = "^6.0"
 uvicorn = "^0.18.3"
