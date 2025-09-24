@@ -9,7 +9,7 @@ RUN poetry config virtualenvs.in-project true
 COPY pyproject.toml pyproject.toml
 COPY poetry.lock poetry.lock
 
-RUN poetry install --no-root --no-dev \
+RUN poetry install --no-root --without dev \
     && rm -rf /root/.cache/*
 
 COPY guesthouse guesthouse
