@@ -7,13 +7,15 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "^0.81.0"
-pych-client = "^0.3.1"
+fastapi = "^0.116.2"
+pych-client = "^0.4.1"
 PyYAML = "^6.0"
 uvicorn = "^0.18.3"
 pytest = "^7.1.2"
+anyio = "<4"
+pydantic-settings = "^2.10.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 mypy = "^0.971"
 pre-commit = "^2.20.0"
 pytest-asyncio = "^0.19.0"
