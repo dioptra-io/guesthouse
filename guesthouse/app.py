@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 import secrets
 
 from fastapi import Body, FastAPI
@@ -25,7 +26,8 @@ background_tasks = {}
 
 @app.on_event("startup")
 async def configure_logging() -> None:
-    logging.basicConfig(level=logging.INFO)
+    level = os.getenv("LOG_LEVEL", "WARNING").upper()
+    logging.basicConfig(level=getattr(logging, level, logging.WARNING))
 
 
 @app.on_event("startup")
